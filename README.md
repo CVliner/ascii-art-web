@@ -33,7 +33,7 @@ The main page must have:
     The code must respect the good practices.
     It is recommended to have test files for unit testing.
 
-### HTTP status code
+### http status code
 
 Your endpoints must return appropriate HTTP status codes.
 
