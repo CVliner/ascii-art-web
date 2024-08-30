@@ -10,7 +10,6 @@ import (
 
 func main() {
 	http.HandleFunc("/", handler)
-	// http.HandleFunc("/ascii-art/download", download)
 	fmt.Println("Server is running @ localhost:9797")
 	log.Println("OK(200)")
 	err := http.ListenAndServe(":9797", nil)
@@ -29,7 +28,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 	if r.URL.Path != "/" { //&& r.URL.Path != "/ascii-art/download" {
 		fmt.Println("Not applicable path")
 		Error404(w)
-		// http.Error(w, "", http.StatusNotFound)
 		return
 	}
 	switch r.Method {
@@ -52,7 +50,6 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			fmt.Println(400, 2)
 			Error400(w)
-			// http.Error(w, "", http.StatusBadRequest)
 			return
 		}
 	}
