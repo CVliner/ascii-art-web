@@ -27,12 +27,6 @@ The main page must have:
     radio buttons, select object or anything else to switch between banners
     button, which sends a POST request to '/ascii-art' and outputs the result on the page.
 
-### Instructions
-
-    Project must be written in Go.
-    The code must respect the good practices.
-    It is recommended to have test files for unit testing.
-
 ### http status code
 
 Your endpoints must return appropriate HTTP status codes.
