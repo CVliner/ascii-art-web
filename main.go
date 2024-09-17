@@ -10,7 +10,7 @@ import (
 
 func main() {
 	http.HandleFunc("/", handler)
-	fmt.Println("Server is running @ localhost:9797")
+	fmt.Println("Server is running in localhost:9797")
 	log.Println("OK(200)")
 	err := http.ListenAndServe(":9797", nil)
 	if err != nil {
@@ -37,12 +37,12 @@ func handler(w http.ResponseWriter, r *http.Request) {
 		text, banner := r.FormValue("text"), r.FormValue("banner")
 		output, err1 := asciiart.Generate(text, banner)
 		if err1 == false && output == "2" {
-			fmt.Println("Resource not found!")
+			fmt.Println("Resource is not found!")
 			Error404(w)
 			return
 		}
 		if err1 == false && output == "1" {
-			fmt.Println("Not applicable Ascii")
+			fmt.Println("Not applicable Ascii symbol")
 			Error400(w)
 			return
 		}
@@ -59,7 +59,7 @@ func Error500(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusInternalServerError)
 	t, err := template.ParseFiles("templates/500-error.html")
 	if err != nil {
-		log.Fatalf("Error happened in parsing file. Err: %s", err)
+		log.Fatalf("Error is happened in parsing file. Err: %s", err)
 		return
 	}
 	t.Execute(w, nil)
@@ -69,7 +69,7 @@ func Error404(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusNotFound)
 	t, err := template.ParseFiles("templates/404-error.html")
 	if err != nil {
-		log.Fatalf("Error happened in parsing file. Err: %s", err)
+		log.Fatalf("Error is happened in parsing file. Err: %s", err)
 		return
 	}
 	t.Execute(w, nil)
@@ -79,7 +79,7 @@ func Error400(w http.ResponseWriter) {
 	w.WriteHeader(http.StatusBadRequest)
 	t, err := template.ParseFiles("templates/400-error.html")
 	if err != nil {
-		log.Fatalf("Error happened in parsing file. Err: %s", err)
+		log.Fatalf("Error is happened in parsing file. Err: %s", err)
 		return
 	}
 	t.Execute(w, nil)
